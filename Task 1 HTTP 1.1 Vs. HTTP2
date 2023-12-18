@@ -1,0 +1,22 @@
+When we navigate to a website and search, the browser sends a "GET" request to the server process the content of the same. The server gets the request for the document and responds with the same. 
+In that document are likely various assets. Things like images, stylesheets (CSS files) and JavaScript assets (.js files). The browser reads the document and repeats steps 1 and 2 for each asset in a queue.
+It's a simple flow that's pretty easy to understand, but there are a few problems here:
+
+a. Head-of-line blocking: Each HTTP/1.1 connection could handle only one request at a time. This limitation often led to inefficient use of network resources, as subsequent requests had to wait for the previous request to complete.
+
+b. Lack of prioritization: HTTP/1.1 did not offer a way to prioritize requests, which could lead to less critical resources blocking more important ones.
+
+c. There are other problems, such as plain text headers being sent that are large, especially when cookies are in use.
+
+All of these issues have a large performance impact, especially on the modern web.
+
+HTTP/2
+In comes HTTP/2, released in 2015. The goal of HTTP/2 was to address the issues raised above. 
+The web has changed over the 16 years that HTTP/1.1 was king, people have mobile devices on less stable 4G connections, landline connections have huge throughput capabilities compared to those in the 90s (dial-up, anyone?), but websites are also huge in comparison to what they used to be.
+HTTP/2 also implements some other features, focussing on performance:
+
+Header compression: HTTP/2 uses the HPACK algorithm to compress request and response headers, significantly reducing the amount of data transmitted.
+Server push: With HTTP/2, servers can proactively push resources to the client's cache before they are requested, reducing latency and improving the overall user experience.
+Stream prioritization: HTTP/2 enables clients to prioritize requests, allowing more critical resources to be fetched and rendered first.
+Binary framing: HTTP/2 uses a binary framing layer to encapsulate messages, which makes the protocol more efficient and less error-prone compared to the plain-text approach of HTTP/1.x.
+HTTP/2 relies on the same underlying protocol in order to operate: TCP. This is both a positive and a negative. Because TCP is used by HTTP/1.x already it means adoption is much easier; browsers don't need to implement a new underlying protocol, and servers can continue operating as they are now with a few tweaks to implement the HTTP/2 features. The downside is that there are issues with TCP, especially in high-latency and lossy networks.
