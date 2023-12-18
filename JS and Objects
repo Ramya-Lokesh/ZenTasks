@@ -1,0 +1,23 @@
+JavaScript objects is a datatype. This is different from other primitive datatypes of JavaScript such as Number, String, Boolean, Null, Undefined, Symbol. These primitive datatypes store a single value each depending on their type.
+Object contains both the combinations of primitive datatypes as well as reference datatype.
+Object is a reference datatype.
+Objects in JS are an unordered data, of primitive or reference data in the form of "key:value" pairs. These keys can be variables or functions and are called properties and Methods. These properties and methods are referred in the context of object.
+Example : If "Object" is a student, it will have properties such as "Student Name, age, address, id, etc., 
+It will have methods like UpdateAddress, UpdateName etc.,
+
+OBJECTS AND PROPERTIES
+A JavaScript Object has properties associated with it. A property of an object is a variable attached to the object.
+Object properties are same as ordinary JavaScript variables except for the attachment to the objects. The properties of an object defines the Characteristics of the object, wherein the properties of an object can be accessed with a dot-notion:
+Like this : objectName.propertyName
+
+Like all JavaScript variables, both the ObjectName and the property Name are "Case-sensitive")
+Example : If there is an object Name called myCar.
+It's properties include Make, Model and Year.
+
+Var myCar = new object();
+myCar.make = 'Ford';
+myCar.model = 'Fiesta';
+myCar.year = 2005;
+
+If there is a property of an object with an unassigned value, it is called as "Undefined" and not Null.
+myCar.color; (Property of color is undefined.)
